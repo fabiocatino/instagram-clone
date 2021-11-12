@@ -15,10 +15,10 @@ const Stories = () => {
 	}, []);
 
 	return (
-		<div>
+		<div className="h-50">
 			<div
-				className="flex overflow-x-scroll scrollbar-thin scrollbar-thumb-black space-x-2 p-6 mt-8 
-            bg-white border-gray-20 border  rounded-sm"
+				className="flex overflow-x-scroll scrollbar-thin scrollbar-thumb-black space-x-2 p-6
+            bg-white border-gray-20 border rounded-sm h-32"
 			>
 				{suggestions.map((profile) => (
 					<Story
