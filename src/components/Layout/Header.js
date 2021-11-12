@@ -11,6 +11,8 @@ import {
 import { HomeIcon } from '@heroicons/react/solid';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { useRecoilState } from 'recoil';
+import { modalState } from '../../../atoms/modalAtom';
 
 const Header = () => {
 	const { data: session, status } = useSession();
@@ -18,6 +20,7 @@ const Header = () => {
 		user: { image },
 	} = session;
 	const router = useRouter();
+	const [open, setOpen] = useRecoilState(modalState);
 
 	return (
 		<div className="border-b  bg-white shadow-sm sticky top-0 z-50">
@@ -66,18 +69,18 @@ const Header = () => {
 
 				{/* RIGHT SECTION */}
 				<div className="flex items-center justify-end space-x-4">
-					<HomeIcon className="navBtn" />
-					<MenuIcon className="h-6 md:hidden cursor-pointer" />
+					<HomeIcon onClick={() => router.push('/')} className="navBtn" />
+					<MenuIcon className="h-10 md:hidden cursor-pointer" />
 					<div className="relative">
 						<PaperAirplaneIcon className="navBtn rotate-45" />
 						<div
-							className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center 
+							className="hidden md:inline-flex absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full items-center justify-center 
                         animate-pulse text-white"
 						>
 							3
 						</div>
 					</div>
-					<PlusCircleIcon className="navBtn" />
+					<PlusCircleIcon onClick={() => setOpen(true)} className="navBtn" />
 					<UserGroupIcon className="navBtn" />
 					<HeartIcon className="navBtn" />
 

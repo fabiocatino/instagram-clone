@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 	const router = useRouter();
@@ -20,7 +21,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 				<title>Instagram clone</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Component {...pageProps} />
+			<RecoilRoot>
+				<Component {...pageProps} />
+			</RecoilRoot>
 		</SessionProvider>
 	);
 }

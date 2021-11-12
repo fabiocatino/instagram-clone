@@ -1,18 +1,15 @@
 import Feed from '../src/components/Feed';
 import Header from '../src/components/Layout/Header';
 import { getSession, signIn, signOut } from 'next-auth/react';
+import Modal from '../src/components/Modal';
 
 export default function Home() {
-	
 	return (
-		<>
-			<div className="h-screen overflow-y-scroll scrollbar-hide">
-				<Header />
-				<div className="">
-					<Feed />
-				</div>
-			</div>
-		</>
+		<div className="h-screen overflow-y-scroll scrollbar-hide">
+			<Header />
+			<Feed />
+			<Modal />
+		</div>
 	);
 }
 
