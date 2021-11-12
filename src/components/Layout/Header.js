@@ -14,6 +14,7 @@ const Header = () => {
 	return (
 		<div className="border-b  bg-white shadow-sm sticky top-0 z-50">
 			<div className="flex justify-between h-[54px] max-w-6xl mx-5 lg:mx-auto cursor-pointer">
+				
 				{/* LEFT SECTION */}
 				<div className="relative hidden lg:inline-grid  w-24">
 					<Image
