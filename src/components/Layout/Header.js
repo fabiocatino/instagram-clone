@@ -9,14 +9,25 @@ import {
 	MenuIcon,
 } from '@heroicons/react/outline';
 import { HomeIcon } from '@heroicons/react/solid';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const Header = () => {
+	const { data: session, status } = useSession();
+	const {
+		user: { image },
+	} = session;
+	const router = useRouter();
+
 	return (
 		<div className="border-b  bg-white shadow-sm sticky top-0 z-50">
 			<div className="flex justify-between h-[54px] max-w-6xl mx-5 lg:mx-auto cursor-pointer">
-				
 				{/* LEFT SECTION */}
-				<div className="relative hidden lg:inline-grid  w-24">
+
+				<div
+					onClick={() => router.push('/')}
+					className="relative hidden lg:inline-grid  w-24"
+				>
 					<Image
 						src="https://links.papareact.com/ocw"
 						layout="fill"
@@ -25,7 +36,10 @@ const Header = () => {
 					/>
 				</div>
 
-				<div className="relative lg:hidden w-10  flex-shrink-0 cursor-pointer">
+				<div
+					onClick={() => router.push('/')}
+					className="relative lg:hidden w-10  flex-shrink-0 cursor-pointer"
+				>
 					<Image
 						src="https://links.papareact.com/jjm"
 						layout="fill"
@@ -66,11 +80,22 @@ const Header = () => {
 					<PlusCircleIcon className="navBtn" />
 					<UserGroupIcon className="navBtn" />
 					<HeartIcon className="navBtn" />
-					<img
-						src="https://links.papareact.com/3ke"
-						alt="propic"
-						className="h-8 rounded-full cursor-pointer"
-					/>
+
+					{status === 'authenticated' && (
+						<img
+							src={image}
+							alt="propic"
+							className="h-8 rounded-full cursor-pointer"
+						/>
+					)}
+
+					{status === 'loading' && (
+						<div className="h-8 rounded-full cursor-pointer">
+							<div className="flex animate-pulse flex-row items-center h-full justify-center space-x-5">
+								<div className="w-8 bg-gray-300 h-8 rounded-full "> </div>
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 		</div>
