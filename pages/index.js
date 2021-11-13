@@ -1,6 +1,6 @@
+import { getSession } from 'next-auth/react';
 import Feed from '../src/components/Feed';
 import Header from '../src/components/Layout/Header';
-import { getSession, signIn, signOut } from 'next-auth/react';
 import Modal from '../src/components/Modal';
 
 export default function Home() {
