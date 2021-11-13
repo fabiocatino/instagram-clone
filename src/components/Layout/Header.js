@@ -23,13 +23,13 @@ const Header = () => {
 	const [open, setOpen] = useRecoilState(modalState);
 
 	return (
-		<div className="border-b  bg-white shadow-sm sticky top-0 z-50">
-			<div className="flex justify-between h-[54px] max-w-6xl mx-5 lg:mx-auto cursor-pointer">
+		<div  className="border-b  bg-white shadow-sm sticky top-0 z-50">
+			<div className="flex justify-between h-[54px] max-w-[975px] mx-5 lg:mx-auto cursor-pointer  lg:pr-5">
 				{/* LEFT SECTION */}
 
 				<div
 					onClick={() => router.push('/')}
-					className="relative hidden lg:inline-grid  w-24"
+					className="relative hidden lg:inline-flex self-center w-[103px] h-[29px]"
 				>
 					<Image
 						src="https://links.papareact.com/ocw"
@@ -88,7 +88,7 @@ const Header = () => {
 						<img
 							src={image}
 							alt="propic"
-							className="h-8 rounded-full cursor-pointer"
+							className="h-[22px] rounded-full cursor-pointer"
 						/>
 					)}
 

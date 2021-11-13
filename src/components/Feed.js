@@ -8,10 +8,10 @@ const Feed = () => {
 	return (
 		<main
 			className="grid grid-cols-1 md:grid-cols-1 md:max-w-3xl xl:grid-cols-3
-        xl:max-w-[935px] mx-auto mt-8"
+        xl:max-w-[960px] mx-auto mt-8"
 		>
 			{/* Section 1 */}
-			<section className="col-span-2 space-y-8 max-w-[614px] md:mr-7">
+			<section className="col-span-2 space-y-8 max-w-[614px] lg:w-[614px] md:mr-7">
 				<Stories />
 				<Posts />
 			</section>
