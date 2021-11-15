@@ -10,13 +10,20 @@ import { getStorage } from 'firebase/storage';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-	apiKey: process.env.NEXT_PUBLIC_FIREBASE_API,
-	authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-	projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-	storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-	messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDERID,
-	appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-	measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID,
+	apiKey: 'AIzaSyAptsDSTR7i3fVrhp2i0iyKCx7-bQvEHo8',
+	authDomain: 'instagram-clone-3f6f5.firebaseapp.com',
+	projectId: 'instagram-clone-3f6f5',
+	storageBucket: 'instagram-clone-3f6f5.appspot.com',
+	messagingSenderId: '864661441753',
+	appId: '1:864661441753:web:f8ab84d3304f7975a1c2c8',
+	measurementId: 'G-KCVWF9SWVF',
+	// apiKey: process.env.NEXT_PUBLIC_FIREBASE_API,
+	// authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+	// projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+	// storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+	// messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDERID,
+	// appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+	// measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID,
 };
 
 // Initialize Firebase
