@@ -5,7 +5,7 @@ import Modal from '../src/components/Modal';
 
 export default function Home() {
 	return (
-		<div className="h-screen overflow-y-scroll scrollbar-hide">
+		<div className="h-screen overflow-y-scroll scrollbar-hide mb-10">
 			<Header />
 			<Feed />
 			<Modal />
