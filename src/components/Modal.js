@@ -3,7 +3,7 @@ import {
 	collection,
 	doc,
 	serverTimestamp,
-	updateDoc,
+	updateDoc
 } from '@firebase/firestore';
 import { getDownloadURL, ref, uploadString } from '@firebase/storage';
 import { Dialog, Transition } from '@headlessui/react';

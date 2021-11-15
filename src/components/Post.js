@@ -22,7 +22,6 @@ import { useSession } from 'next-auth/react';
 import React, { useEffect, useState } from 'react';
 import { db } from '../../firebase';
 
-
 const Post = ({ id, username, image, profileImg, caption }) => {
 	const {
 		data: {
@@ -48,7 +47,7 @@ const Post = ({ id, username, image, profileImg, caption }) => {
 					setComments(snapshot.docs);
 				}
 			),
-		[db, id]
+		[id]
 	);
 
 	const submitHandler = async (e) => {
@@ -74,7 +73,7 @@ const Post = ({ id, username, image, profileImg, caption }) => {
 			onSnapshot(collection(db, 'posts', id, 'likes'), (snapshot) =>
 				setLikes(snapshot.docs)
 			),
-		[db, id]
+		[id]
 	);
 
 	useEffect(
@@ -83,7 +82,7 @@ const Post = ({ id, username, image, profileImg, caption }) => {
 				collection(db, 'posts', id, 'comments', uid, 'likes'),
 				(snapshot) => setCommentLikes(snapshot.docs)
 			),
-		[db, id]
+		[uid]
 	);
 
 	const likePostHandler = async () => {
@@ -98,7 +97,7 @@ const Post = ({ id, username, image, profileImg, caption }) => {
 
 	useEffect(
 		() => setHasLiked(likes.findIndex((like) => like.id === uid) !== -1),
-		[likes]
+		[likes, uid]
 	);
 
 	//LIKE COMMENT LOGIC
@@ -123,7 +122,7 @@ const Post = ({ id, username, image, profileImg, caption }) => {
 
 	useEffect(
 		() => setIsLiked(commentLikes.findIndex((like) => like.id === uid) !== -1),
-		[commentLikes]
+		[commentLikes, uid]
 	);
 
 	return (
@@ -137,7 +136,7 @@ const Post = ({ id, username, image, profileImg, caption }) => {
 				<p className="flex-1 font-semibold text-xs">{username}</p>
 				<DotsHorizontalIcon className="h-5 right-2 cursor-pointer" />
 			</div>
-			<img src={image} alt={username} className="object- w-full" />
+			<img src={image} alt={username} className="object-contain w-full" />
 
 			{/* BUTTONS */}
 
