@@ -7,7 +7,7 @@ import {
 	orderBy,
 	query,
 	serverTimestamp,
-	setDoc
+	setDoc,
 } from '@firebase/firestore';
 import {
 	BookmarkIcon,
@@ -15,14 +15,15 @@ import {
 	DotsHorizontalIcon,
 	EmojiHappyIcon,
 	HeartIcon,
-	PaperAirplaneIcon
+	PaperAirplaneIcon,
 } from '@heroicons/react/outline';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/solid';
 import { useSession } from 'next-auth/react';
 import React, { useEffect, useState } from 'react';
+import Moment from 'react-moment';
 import { db } from '../../firebase';
 
-const Post = ({ id, username, image, profileImg, caption }) => {
+const Post = ({ id, username, image, profileImg, caption, timestamp }) => {
 	const {
 		data: {
 			user: { username: usernameSession, uid },
@@ -160,7 +161,11 @@ const Post = ({ id, username, image, profileImg, caption }) => {
 
 			<div className="px-4 py-4">
 				<div className=" space-y-2">
-					<p className="text-sm font-semibold">5,000 likes</p>
+					{likes && (
+						<p className="text-sm font-semibold">
+							{likes.length} {likes.length === 1 ? 'like' : 'likes'}
+						</p>
+					)}
 					<p className="truncate text-sm">
 						<span className="font-semibold "> {username}</span> {caption}
 					</p>
@@ -186,6 +191,9 @@ const Post = ({ id, username, image, profileImg, caption }) => {
 							)}
 						</div>
 					))}
+				</div>
+				<div className="mt-2 text-[10px] uppercase text-gray-500">
+					<Moment fromNow date={timestamp?.toDate()} />
 				</div>
 			</div>
 
