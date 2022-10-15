@@ -7,10 +7,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "@tailwindcss/forms": "^0.3.4",
-    "faker": "^5.5.3",
     "firebase": "^9.4.1",
     "next": "latest",
     "next-auth": "4.0.0-beta.4",
